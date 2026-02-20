@@ -1,0 +1,1 @@
+https://github.com/bluntbrain/solscan-react-native.git
