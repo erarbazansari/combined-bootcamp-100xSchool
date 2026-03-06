@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Premium Calculator</title>
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Calculator</h1>
+            <div id="result" style="display: none"></div>
+            <div id="inputs" style="display: block">
+                <input
+                    type="number"
+                    name="a"
+                    id="a"
+                    placeholder="First Number"
+                    required
+                />
+                <input
+                    type="number"
+                    name="b"
+                    id="b"
+                    placeholder="Second Number"
+                    required
+                />
+                <select name="operator" id="operator">
+                    <option value="add">Add (+)</option>
+                    <option value="subtract">Subtract (-)</option>
+                    <option value="multiply">Multiply (×)</option>
+                    <option value="divide">Divide (÷)</option>
+                </select>
+                <button type="button" id="calculate">Calculate</button>
+            </div>
+
+            <script src="index.js"></script>
+        </div>
+    </body>
+</html>
