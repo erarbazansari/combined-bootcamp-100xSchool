@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>signup page</title>
+        <style>
+            body {
+                padding: 20px;
+                font-family: Arial;
+            }
+            .container {
+                max-width: 400px;
+                margin: 50px auto;
+            }
+            input {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                box-sizing: border-box;
+            }
+            button {
+                width: 100%;
+                padding: 10px;
+                background: green;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            .link {
+                margin-top: 20px;
+                text-align: center;
+            }
+            .error {
+                color: red;
+                margin: 10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Sign Up</h1>
+            <div class="error" id="error"></div>
+            <input type="email" id="email" placeholder="Email" />
+            <input type="password" id="password" placeholder="Password" />
+            <button onclick="signup()">Sign Up</button>
+            <div class="link">
+                <p>
+                    Already have an account? <a href="./signin.html">Sign In</a>
+                </p>
+                <a href="/">Back to Home</a>
+            </div>
+        </div>
+
+        <script>
+            const email = document.getElementById("email");
+            const password = document.getElementById("password");
+            const errorDiv = document.getElementById("error");
+
+            async function signup() {
+                errorDiv.innerText = "";
+                const e = email.value;
+                const p = password.value;
+
+                if (!e || !p) {
+                    errorDiv.innerText = "Please fill all fields";
+                    return;
+                }
+
+                const res = await fetch("/signup", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email: e, password: p }),
+                });
+                const data = await res.json();
+
+                if (data.msg.includes("created")) {
+                    alert(data.msg);
+                    window.location.href = "./signin.html";
+                } else {
+                    errorDiv.innerText = data.msg;
+                }
+            }
+        </script>
+    </body>
+</html>

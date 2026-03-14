@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>notes app</title>
+        <link rel="stylesheet" href="./index.css" />
+    </head>
+    <body>
+        <nav class="navigation">
+            <div id="auth-links">
+                <a href="./signin.html">signin</a>
+                <a href="./signup.html">signup</a>
+            </div>
+            <button id="logout-btn" class="hide" onclick="logout()">
+                logout
+            </button>
+        </nav>
+        <div class="content">
+            <!-- input -->
+            <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="title"
+                autofocus
+            />
+            <input
+                type="text"
+                name="desc"
+                id="desc"
+                placeholder="description"
+            />
+            <button onclick="addNote()">add this!</button>
+
+            <!-- all notes -->
+            <ul id="notes"></ul>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>
